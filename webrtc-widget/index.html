@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ویجت تماس WebRTC - مرکز تماس استریسک</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button id="launcherBtn" class="launcher" type="button">
+      <span class="launcher__glow"></span>
+      <span class="launcher__label">شروع تماس</span>
+    </button>
+
+    <section id="widget" class="widget" hidden>
+      <header class="widget__header">
+        <div>
+          <h1>ویجت تماس WebRTC</h1>
+          <p class="widget__subtitle">مرکز تماس استریسک در مرورگر شما</p>
+        </div>
+        <div class="widget__status" id="status">در انتظار رجیستر...</div>
+      </header>
+
+      <div class="widget__body">
+        <section class="panel">
+          <h2>مقصد تماس</h2>
+          <div id="destinations" class="destinations"></div>
+
+          <div class="controls">
+            <button id="audioCallBtn" class="btn" disabled>تماس صوتی</button>
+            <button id="videoCallBtn" class="btn" disabled>تماس تصویری</button>
+            <button id="hangupBtn" class="btn btn--danger" disabled>قطع تماس</button>
+          </div>
+
+          <div class="controls">
+            <button id="holdBtn" class="btn" disabled>Hold</button>
+            <button id="muteBtn" class="btn" disabled>Mute</button>
+            <button id="transferBtn" class="btn" disabled>انتقال تماس</button>
+          </div>
+
+          <div class="controls">
+            <button id="recordBtn" class="btn" disabled>شروع ضبط</button>
+            <button id="stunTestBtn" class="btn">تست STUN/TURN</button>
+          </div>
+
+          <div class="transfer">
+            <label for="transferTarget">داخلی مقصد انتقال</label>
+            <input id="transferTarget" type="text" placeholder="مثلا 302" />
+          </div>
+
+          <div class="log" id="log"></div>
+        </section>
+
+        <section class="panel panel--media" id="mediaPanel" hidden>
+          <h2>تماس تصویری</h2>
+          <div class="media">
+            <video id="remoteVideo" autoplay playsinline></video>
+            <video id="localVideo" autoplay playsinline muted></video>
+            <canvas id="whiteboard" class="whiteboard" hidden></canvas>
+          </div>
+          <div class="controls">
+            <button id="whiteboardBtn" class="btn" disabled>تخته وایت‌برد</button>
+            <button id="shareBtn" class="btn" disabled>اشتراک دسکتاپ</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
