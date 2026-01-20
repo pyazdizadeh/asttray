@@ -1,0 +1,248 @@
+:root {
+  color-scheme: light;
+  font-family: var(--widget-font, "Vazirmatn", "Tahoma", sans-serif);
+  background: radial-gradient(circle at top, #f8fbff, #eef2ff 40%, #e7e9f5 100%);
+  color: #101828;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  direction: var(--widget-direction, rtl);
+}
+
+.launcher {
+  position: fixed;
+  border: none;
+  background: linear-gradient(135deg, #5b5df9, #9f6bff 60%, #e6b8ff);
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(91, 93, 249, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.launcher__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 65%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.launcher__label {
+  position: relative;
+  z-index: 1;
+}
+
+.widget {
+  position: fixed;
+  width: min(1040px, 92vw);
+  max-height: 82vh;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  z-index: 10;
+}
+
+.widget__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.widget__subtitle {
+  margin: 8px 0 0;
+  color: #475467;
+}
+
+.widget__status {
+  background: rgba(91, 93, 249, 0.1);
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #3f3f9a;
+  font-weight: 600;
+}
+
+.widget__body {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.panel--media {
+  align-items: stretch;
+}
+
+.destinations {
+  display: grid;
+  gap: 10px;
+}
+
+.destination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.8));
+}
+
+.destination input {
+  margin-left: 10px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+  color: inherit;
+  cursor: pointer;
+  min-width: 120px;
+  font-weight: 600;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.btn--danger {
+  background: linear-gradient(135deg, #ff6b6b, #ff8fab);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.transfer label {
+  display: block;
+  margin-bottom: 6px;
+  color: #475467;
+}
+
+.transfer input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.log {
+  background: rgba(91, 93, 249, 0.08);
+  border-radius: 16px;
+  padding: 10px 12px;
+  min-height: 120px;
+  font-size: 0.9rem;
+  color: #344054;
+  overflow: auto;
+}
+
+.media {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+video {
+  width: 100%;
+  border-radius: 16px;
+  background: #0b1020;
+  min-height: 200px;
+  object-fit: cover;
+}
+
+#localVideo {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: 30%;
+  max-width: 180px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.whiteboard {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: crosshair;
+}
+
+.position-bottom-right {
+  bottom: 24px;
+  right: 24px;
+}
+
+.position-bottom-left {
+  bottom: 24px;
+  left: 24px;
+}
+
+.position-top-right {
+  top: 24px;
+  right: 24px;
+}
+
+.position-top-left {
+  top: 24px;
+  left: 24px;
+}
+
+@media (max-width: 768px) {
+  .widget {
+    width: calc(100vw - 24px);
+    max-height: 88vh;
+    padding: 18px;
+  }
+
+  #localVideo {
+    position: static;
+    width: 100%;
+    max-width: none;
+  }
+
+  .media {
+    position: static;
+  }
+}
